@@ -26,7 +26,7 @@ const VerifyEmail = () => {
       clearOtp(email);
 
       // temporary redirect to dashboard or home after delay
-      setTimeout(() => navigate("/customer/home"), 1500);
+      setTimeout(() => navigate("/admin/dashboard"), 1500);
     } else {
       setError("❌ Invalid OTP. Please try again.");
       setSuccess("");
@@ -35,7 +35,7 @@ const VerifyEmail = () => {
 
   if (!email) {
     return (
-      <div className="flex justify-center items-center min-h-screen text-lg font-medium text-red-600">
+      <div className="flex justify-center items-center min-h-screen text-lg font-medium text-red-500">
         Invalid access! Please login first.
       </div>
     );
@@ -43,8 +43,8 @@ const VerifyEmail = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
-      <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-sm transition-all">
-        <h2 className="text-2xl font-semibold mb-6 text-center text-gray-800">
+      <div className="bg-gradient-to-r from-orange-50 via-white to-orange-100 p-8 rounded-2xl shadow-lg w-full max-w-sm transition-all">
+        <h2 className="text-2xl font-semibold mb-6 text-center text-orange-400">
           Verify Your Email
         </h2>
         <p className="text-center text-gray-600 mb-4 text-sm">
@@ -52,7 +52,7 @@ const VerifyEmail = () => {
         </p>
 
         {error && (
-          <div className="bg-red-100 text-red-700 p-2 rounded mb-3 text-center font-medium">
+          <div className="bg-red-100 text-red-500 p-2 rounded mb-3 text-center font-medium">
             {error}
           </div>
         )}
@@ -72,7 +72,7 @@ const VerifyEmail = () => {
               type="text"
               value={otp}
               onChange={(e) => setOtp(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#bca7f5] bg-gray-50 text-center text-lg tracking-widest"
+              className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e89c49] bg-gray-50 text-center text-lg tracking-widest"
               placeholder="123456"
               maxLength={6}
             />
@@ -80,14 +80,14 @@ const VerifyEmail = () => {
 
           <button
             type="submit"
-            className="w-full bg-[#7b68ee] hover:bg-[#6a5acd] text-white py-2 px-4 rounded-lg font-medium transition duration-300"
+            className="w-full bg-[#e89c49] hover:bg-[#39eb4b] text-white py-2 px-4 rounded-lg font-medium transition duration-300"
           >
             Verify OTP
           </button>
         </form>
 
         <p
-          className="text-center text-sm text-[#7b68ee] mt-4 cursor-pointer hover:underline"
+          className="text-center text-sm text-[#e89c49] mt-4 cursor-pointer hover:underline"
           onClick={() => navigate("/")}
         >
           Back to Login
